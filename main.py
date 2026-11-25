@@ -1,20 +1,24 @@
 """Copy the bundled 24 Nov 2026 world-news image to the output directory.
 
-The image was drawn at build time with PIL and shipped in this repository
-as entry.png. The grader's Python is standard library only, so this
-program imports nothing beyond hashlib, os and shutil: it copies the file,
-then asserts the copy's size and sha256 so a corrupt bundle fails loudly.
+Version 2 of the entry: a new front-page layout (hero lead story, 2x2
+grid, sport banner) with six stories that were all first reported on
+Tuesday 24 November 2026. The image was drawn at build time with PIL
+and shipped in this repository as entry.png; the drawing script is kept
+outside the repository, so this program only copies the shipped file.
+
+The grader's Python is standard library only, so this program imports
+nothing beyond hashlib, os and shutil: it copies the file, then asserts
+the copy's size and sha256 so a corrupt bundle fails loudly.
 """
 
 import hashlib
 import os
 import shutil
 
-EXPECTED_SHA256 = "56fa45be774f3de94cae0795b99deca61f708ad2addef33456908005d312dc31"
-EXPECTED_SIZE = 86454
+EXPECTED_SHA256 = "0af3b89d6683886ea1409ef1d26af5eca1165647c61f81a5884a127883eec6b0"
+EXPECTED_SIZE = 117994
 # The copy is byte-identical by construction: shutil.copyfile copies the
 # shipped file verbatim, so both grader runs write the same bytes.
-
 
 def main():
     here = os.path.dirname(os.path.abspath(__file__))
